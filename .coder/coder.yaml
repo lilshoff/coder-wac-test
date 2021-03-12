@@ -1,0 +1,42 @@
+version: 0.0
+workspace:
+  name: "test-wac-0"
+  type: "kubernetes"
+  spec:
+    image: ubuntu
+    container-based-vm: false
+    cpu: 1
+    memory: 1.2
+    disk: 15
+  configure:
+    start:
+      - command: touch test3.txt
+        directory: /tmp/test1/test2
+        name: Create textfile - test directory spec
+      - command: touch home-dir.txt
+        name: Create textfile in home directory - test default to home dir
+      - command: echo $TESTENV > this-should-say-hello.txt
+        env:
+          TESTENV: hello
+        directory: /tmp
+        name: Write environment var to file - test env
+      - command: cat this-should-say-hello.txt
+        directory: /tmp
+        name: Validate previous step...
+      - command: mkdir
+        args:
+          - -p
+          - /tmp/one/two/three/four/five
+        directory: /tmp
+        name: Create directories - test command w args
+      - command: apt-get update -y && apt-get install -y git
+        directory: /tmp
+        name: Install git
+      - command: git init
+        directory: /tmp/test-git
+      - command: if $THIS_IS_TRUE; then echo true > out.txt; else echo false > out.txt; fi
+        env:
+          THIS_IS_TRUE: true
+        name: Test parsing bool from map
+      - command: cat /path/does/not/exist.txt
+        name: Test err - this should fail

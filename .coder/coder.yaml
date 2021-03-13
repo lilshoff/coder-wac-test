@@ -7,7 +7,7 @@ workspace:
     container-based-vm: false
     cpu: 1
     memory: 1.2
-    disk: 15
+    disk: 16
   configure:
     start:
       - command: touch test3.txt
@@ -29,14 +29,9 @@ workspace:
           - /tmp/one/two/three/four/five
         directory: /tmp
         name: Create directories - test command w args
-      - command: apt-get update -y && apt-get install -y git
-        directory: /tmp
-        name: Install git
-      - command: git init
-        directory: /tmp/test-git
       - command: if $THIS_IS_TRUE; then echo true > out.txt; else echo false > out.txt; fi
         env:
           THIS_IS_TRUE: true
         name: Test parsing bool from map
-      - command: cat /path/does/not/exist.txt
+      - command: asdfff asdf asdf
         name: Test err - this should fail

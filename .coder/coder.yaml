@@ -1,6 +1,6 @@
 version: 0.0
 workspace:
-  name: "test-wac-0"
+  name: "local-lilshoff-0"
   type: "kubernetes"
   spec:
     image: ubuntu
@@ -10,28 +10,30 @@ workspace:
     disk: 16
   configure:
     start:
-      - command: touch test3.txt
+      - name: Create directory /tmp/test1/test2
+        command: mkdir -p /tmp/test1/test2
+      - name: Create textfile (test directory spec)
+        command: touch test3.txt
         directory: /tmp/test1/test2
-        name: Create textfile - test directory spec
-      - command: touch home-dir.txt
-        name: Create textfile in home directory - test default to home dir
-      - command: echo $TESTENV > this-should-say-hello.txt
+      - name: Create textfile in home directory (test default to home directory)
+        command: touch home-dir.txt
+      - name: Write environment var to file (test env spec)
+        command: echo $TESTENV > this-should-say-hello.txt
         env:
           TESTENV: hello
         directory: /tmp
-        name: Write environment var to file - test env
-      - command: cat this-should-say-hello.txt
+      - name: Create directories (test command w args)
+        command: mkdir -p /tmp/one/two/three/four/five 
         directory: /tmp
-        name: Validate previous step...
-      - command: mkdir
-        args:
-          - -p
-          - /tmp/one/two/three/four/five
-        directory: /tmp
-        name: Create directories - test command w args
-      - command: if $THIS_IS_TRUE; then echo true > out.txt; else echo false > out.txt; fi
+      - name: Write environment var to file (test parsing bool from map) 
+        command: if $THIS_IS_TRUE; then echo true > out.txt; else echo false > out.txt; fi
         env:
           THIS_IS_TRUE: true
-        name: Test parsing bool from map
-      - command: asdfff asdf asdf
-        name: Test err - this should fail
+      - name: Install zsh
+        command: apt update -y && apt install -y zsh
+      - name: Test shell spec - this should succeed - zsh has chdir builtin
+        command: chdir /tmp/ && touch hello.txt
+        shell: /bin/zsh
+      - name: Test shell spec - this should fail - bash has no chdir builtin 
+        command: chdir /tmp/ && touch hello.txt
+        shell: /bin/bash

@@ -1,6 +1,6 @@
 version: 0.0
 workspace:
-  name: "local-lilshoff-0"
+  name: "test-local-wac-template"
   type: "kubernetes"
   spec:
     image: ubuntu
@@ -12,6 +12,11 @@ workspace:
     start:
       - name: Create directory /tmp/test1/test2
         command: mkdir -p /tmp/test1/test2
+      - name: Test multi-line command
+        command: |
+          touch create-this.txt
+          touch create-that.txt
+        directory: /tmp
       - name: Create textfile (test directory spec)
         command: touch test3.txt
         directory: /tmp/test1/test2

@@ -1,9 +1,9 @@
 version: 0.0
 workspace:
-  name: "test-local-wac-template"
+  name: "remote-wac-template-1"
   type: "kubernetes"
   spec:
-    image: ubuntu
+    image: debian
     container-based-vm: false
     cpu: 1
     memory: 1.2

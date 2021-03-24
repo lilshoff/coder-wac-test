@@ -5,7 +5,7 @@ workspace:
   spec:
     image: ubuntu
     container-based-vm: false
-    cpu: 1
+    cpu: 2
     memory: 1.2
     disk: 16
   configure:

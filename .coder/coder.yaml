@@ -1,13 +1,13 @@
 version: 0.0
 workspace:
-  name: "remote-wac-template-1"
+  name: "test-wac-0"
   type: "kubernetes"
   spec:
     image: debian
     container-based-vm: false
     cpu: 1
     memory: 1.2
-    disk: 32
+    disk: 10
   configure:
     start:
       - name: Create directory /tmp/test1/test2
@@ -34,11 +34,3 @@ workspace:
         command: if $THIS_IS_TRUE; then echo true > out.txt; else echo false > out.txt; fi
         env:
           THIS_IS_TRUE: true
-      - name: Install zsh
-        command: apt update -y && apt install -y zsh
-      - name: Test shell spec - this should succeed - zsh has chdir builtin
-        command: chdir /tmp/ && touch hello.txt
-        shell: /bin/zsh
-      - name: Test shell spec - this should fail - bash has no chdir builtin 
-        command: chdir /tmp/ && touch hello.txt
-        shell: /bin/bash

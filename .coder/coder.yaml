@@ -3,11 +3,11 @@ workspace:
   name: "test-wac-0"
   type: "kubernetes"
   spec:
-    image: debian
+    image: centos
     container-based-vm: false
     cpu: 1
     memory: 1.2
-    disk: 10
+    disk: 12
   configure:
     start:
       - name: Create directory /tmp/test1/test2
@@ -20,17 +20,3 @@ workspace:
       - name: Create textfile (test directory spec)
         command: touch test3.txt
         directory: /tmp/test1/test2
-      - name: Create textfile in home directory (test default to home directory)
-        command: touch home-dir.txt
-      - name: Write environment var to file (test env spec)
-        command: echo $TESTENV > this-should-say-hello.txt
-        env:
-          TESTENV: hello
-        directory: /tmp
-      - name: Create directories (test command w args)
-        command: mkdir -p /tmp/one/two/three/four/five 
-        directory: /tmp
-      - name: Write environment var to file (test parsing bool from map) 
-        command: if $THIS_IS_TRUE; then echo true > out.txt; else echo false > out.txt; fi
-        env:
-          THIS_IS_TRUE: true

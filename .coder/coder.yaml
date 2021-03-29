@@ -2,7 +2,7 @@ version: 0.0
 workspace:
   type: "kubernetes"
   spec:
-    image: archlinux
+    image: golang
     container-based-vm: false
     cpu: 2
     memory: 1.5

@@ -3,7 +3,7 @@ workspace:
   name: "test-wac-0"
   type: "kubernetes"
   spec:
-    image: centos 
+    image: archlinux 
     container-based-vm: false
     cpu: 1
     memory: 1.2

@@ -5,7 +5,7 @@ workspace:
     image: archlinux
     container-based-vm: false
     cpu: 2
-    memory: 1.2
+    memory: 1.5
     disk: 16
   configure:
     start:

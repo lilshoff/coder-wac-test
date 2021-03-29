@@ -1,9 +1,8 @@
 version: 0.0
 workspace:
-  name: "test-wac-0"
   type: "kubernetes"
   spec:
-    image: archlinux 
+    image: ubuntu
     container-based-vm: false
     cpu: 2
     memory: 1.2

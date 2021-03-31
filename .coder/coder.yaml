@@ -4,9 +4,9 @@ workspace:
   spec:
     image: ubuntu
     container-based-vm: false
-    cpu: 2
-    memory: 2
-    disk: 16
+    cpu: 4
+    memory: 8
+    disk: 32
   configure:
     start:
       - name: Create directory /tmp/test1/test2

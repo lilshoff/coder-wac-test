@@ -4,9 +4,9 @@ workspace:
   spec:
     image: ubuntu
     container-based-vm: false
-    cpu: 4
-    memory: 8
-    disk: 32
+    cpu: 1
+    memory: 1
+    disk: 8
   configure:
     start:
       - name: Create directory /tmp/test1/test2
@@ -19,3 +19,8 @@ workspace:
       - name: Create textfile (test directory spec)
         command: touch test3.txt
         directory: /tmp/test1/test2
+  devURLs:
+    - name: test1
+      port: 3000
+      scheme: http
+      access: private

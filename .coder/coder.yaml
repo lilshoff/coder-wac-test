@@ -20,7 +20,7 @@ workspace:
         command: touch test3.txt
         directory: /tmp/test1/test2
   devURLs:
-    - name: test1
+    - name: test-asdf
       port: 3000
       scheme: http
       access: private

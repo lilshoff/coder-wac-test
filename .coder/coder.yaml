@@ -6,7 +6,7 @@ workspace:
     container-based-vm: false
     cpu: 1
     memory: 1
-    disk: 8
+    disk: 10
   configure:
     start:
       - name: Create directory /tmp/test1/test2

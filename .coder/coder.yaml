@@ -20,8 +20,8 @@ workspace:
         command: touch test3.txt
         directory: /tmp/test1/test2
   devURLs:
-    - name: testqwerty
-      port: 3001
+    - name: testqwertyasdf
+      port: 3002
       scheme: http
       access: private
     - name: testasdf

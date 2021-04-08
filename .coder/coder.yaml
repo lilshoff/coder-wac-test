@@ -24,3 +24,7 @@ workspace:
       port: 3001
       scheme: http
       access: private
+    - name: testasdf
+      port: 3000
+      scheme: http
+      access: private

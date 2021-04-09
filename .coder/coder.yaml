@@ -19,3 +19,8 @@ workspace:
       - name: Create textfile (test directory spec)
         command: touch test3.txt
         directory: /tmp/test1/test2
+  devURLs:
+    - name: invalid
+      scheme: invalid
+      port: 3333
+      access: invalid

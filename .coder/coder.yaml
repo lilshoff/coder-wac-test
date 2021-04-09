@@ -21,6 +21,10 @@ workspace:
         directory: /tmp/test1/test2
   devURLs:
     - name: testqwertyasdf
-      port: 3002
+      port: 3003
       scheme: http
+      access: private
+    - name: testasdf
+      port: 3001
+      scheme: https
       access: private

@@ -19,12 +19,3 @@ workspace:
       - name: Create textfile (test directory spec)
         command: touch test3.txt
         directory: /tmp/test1/test2
-  devURLs:
-    - name: a 
-      port: 3000
-      scheme: http
-      access: private
-    - name: b 
-      port: 3001
-      scheme: https
-      access: private

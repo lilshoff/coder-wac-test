@@ -20,7 +20,7 @@ workspace:
         command: touch test3.txt
         directory: /tmp/test1/test2
   devURLs:
-    - name: invalid
-      scheme: invalid
+    - name: valid
+      scheme: http
       port: 3333
-      access: invalid
+      access: private

@@ -1,26 +1,29 @@
-version: 0.0
+version: 0.2
 workspace:
   type: "kubernetes"
-  spec:
-    image: ubuntu
-    container-based-vm: false
-    cpu: 1
-    memory: 1
-    disk: 12
+  specs:
+    kubernetes:
+      image:
+        value: index.docker.io/library/ubuntu
+      container-based-vm:
+        value: false
+      cpu:
+        value: 1
+      memory:
+        value: 1
+      disk:
+        value: 10
   configure:
     start:
-      - name: Create directory /tmp/test1/test2
-        command: mkdir -p /tmp/test1/test2
-      - name: Test multi-line command
-        command: |
-          touch create-this.txt
-          touch create-that.txt
-        directory: /tmp
-      - name: Create textfile (test directory spec)
-        command: touch test3.txt
-        directory: /tmp/test1/test2
+      value:
+        - name: Create directory /tmp/test1/test2
+          command: mkdir -p /tmp/test1/test2
+        - name: Create textfile (test directory spec)
+          command: touch test3.txt
+          directory: /tmp/test1/test2
   devURLs:
-    - name: valid
-      scheme: http
-      port: 3333
-      access: private
+    value:
+      - name: asdf
+        scheme: http
+        port: 8888
+        access: private

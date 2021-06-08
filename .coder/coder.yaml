@@ -4,7 +4,7 @@ workspace:
   specs:
     kubernetes:
       image:
-        value: index.docker.io/library/ubuntu
+        value: "index.docker.io/library/ubuntu"
       container-based-vm:
         value: false
       cpu:
@@ -21,7 +21,7 @@ workspace:
         - name: Create textfile (test directory spec)
           command: touch test3.txt
           directory: /tmp/test1/test2
-  devURLs:
+  dev-urls:
     value:
       - name: asdf
         scheme: http
